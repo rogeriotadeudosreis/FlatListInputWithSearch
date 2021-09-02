@@ -48,13 +48,13 @@ export const SearchList = () => {
   // retornando um flatlist com a lista da api
   return (
     <SafeAreaView>
+      <Text style={styles.tituloFlatList}>Lista de Posts Diversos</Text>
       <TextInput
         style={styles.input}
         placeholder={'pesquise aqui...'}
         onChangeText={s => search(s)}
         autoCapitalize="none"
       />
-      <Text style={styles.tituloFlatList}>Lista de Posts Diversos</Text>
       <FlatList
         data={news}
         keyExtractor={item => String(item.id)}
@@ -71,7 +71,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#808080',
-    marginBottom: 10,
+    marginTop: 10,
+  },
+  input: {
+    borderColor: '#eee',
+    borderWidth: 1,
+    borderRadius: 4,
+    height: 40,
+    marginHorizontal: 20,
+    marginTop: 10,
+    paddingLeft: 10,
+    backgroundColor: '#FFF',
+    fontSize: 15,
   },
   card: {
     borderColor: '#eee',
@@ -92,14 +103,5 @@ const styles = StyleSheet.create({
     color: '#777',
     fontWeight: 'normal',
     marginTop: 7,
-  },
-  input: {
-    borderColor: '#eee',
-    borderWidth: 1,
-    borderRadius: 4,
-    height: 40,
-    margin: 20,
-    paddingLeft: 10,
-    backgroundColor: '#FFF',
   },
 });
