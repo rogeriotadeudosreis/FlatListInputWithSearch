@@ -1,41 +1,21 @@
-import React, {useState} from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {posts} from '../src/data/posts/';
+import React from 'react';
+import {StatusBar, StyleSheet, View} from 'react-native';
+import {SearchList} from './searchList';
 
-// const SearchList = () => {
-//   const [data, setData] = useState([]);
-// };
-
-function Dados({data}) {
+export default function App() {
   return (
-    <View>
-      <Text>{data.titulo}</Text>
-      <Text>{data.descricao}</Text>
-    </View>
-  );
-}
-
-export default function renderPost({item}) {
-  return (
-    <View style={styles.card}>
-      <FlatList
-        data={posts}
-        keyExtractor={item => item.titulo}
-        renderItem={({item}) => <Dados data={item} />}
-      />
-    </View>
+    <>
+      <StatusBar hidden={true} />
+      <View style={styles.container}>
+        <SearchList />
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#CCC',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  texto: {
-    fontSize: 20,
+    backgroundColor: 'rgb(210,180,140)',
   },
 });
